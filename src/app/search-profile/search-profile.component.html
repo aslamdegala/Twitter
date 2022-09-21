@@ -1,0 +1,43 @@
+<div class="topnav">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <input
+      type="text"
+      placeholder="   Search.."
+      class="formcontrol inp"
+      name="uname"
+      formControlName="uname"
+    />
+
+    <button type="submit" value="submit" class="tweetBox__tweetButton">
+      Search
+    </button>
+  </form>
+</div>
+
+<div class="flex-container">
+  <div class="card" *ngFor="let user of UserList">
+    <img
+      src='https://www.shareicon.net/data/512x512/2016/05/24/769963_man_512x512.png'
+      alt="Img"
+      style="
+        width: 75%;
+        margin-left: 50px;
+        margin-top: 40px;
+        margin-bottom: 10px;
+      "
+    />
+    <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+    <b class="title"> UserName : @{{ user.userName }}</b>
+    <b class="title">Email : {{ user.email }}</b>
+
+    <b class="title">Mobile No : {{ user.contactNo }}</b>
+
+    <p class="title"></p>
+
+    <p>
+      <button routerLink="/ViewProfile" (click)="ViewProfile(user.userName)">
+        View Profile
+      </button>
+    </p>
+  </div>
+</div>

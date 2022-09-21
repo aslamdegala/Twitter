@@ -1,0 +1,225 @@
+/* Split the screen in half */
+.split {
+  width: 50%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 10%;
+  overflow-x: hidden;
+  margin-top: 0%;
+  margin-bottom: 15px;
+  margin-left: 35px;
+  margin-right: 35px;
+}
+/**Top Left Button**/
+.topleft {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+}
+
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 85px;
+  left: 12px;
+}
+
+.tit {
+  font-family: "Times New Roman ";
+  font-size: 40px;
+}
+
+.para {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 16px;
+}
+.sign {
+  text-align: center;
+  align-items: center;
+}
+.wel {
+  text-align: center;
+}
+
+.buttons {
+  align-items: center;
+}
+/* Control the left side */
+.left {
+  left: 0;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+
+  margin-top: 0;
+  padding-top: 0;
+}
+.right::-webkit-scrollbar {
+  display: none;
+}
+
+img {
+  height: 100%;
+}
+
+.inputiteam {
+  margin-bottom: 20px;
+}
+
+.log {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.li {
+  padding-bottom: 50px;
+}
+.input-wrapperPassword {
+  position: relative;
+}
+
+.input-wrapperPassword:before {
+  content: "\f023";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: #459ce7;
+  font-size: 18px;
+  padding-right: 0.5em;
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+.input-wrapperPassword {
+  position: relative;
+}
+
+.input-wrapperPassword:before {
+  content: "\f023";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: #010e06;
+  font-size: 18px;
+  padding-right: 0.5em;
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+.input-wrapperName {
+  position: relative;
+}
+
+.input-wrapperName:before {
+  content: "\f007";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: #010e06;
+  font-size: 18px;
+  padding-right: 0.5em;
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+.input-wrapperEmail {
+  position: relative;
+}
+
+.input-wrapperEmail:before {
+  content: "\f0e0";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: #010e06;
+  font-size: 18px;
+  padding-right: 0.5em;
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+.input-wrapperPhone {
+  position: relative;
+}
+
+.input-wrapperPhone:before {
+  content: "\f095";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: #010e06;
+  font-size: 18px;
+  padding-right: 0.5em;
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+.input-wrapperRole {
+  position: relative;
+}
+
+.input-wrapperRole:before {
+  content: "\f150";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: #010e06;
+  font-size: 18px;
+  padding-right: 0.5em;
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+.input-wrapperAddress {
+  position: relative;
+}
+
+.feedback {
+  text-align: left;
+  color: red;
+}
+
+.divScroll {
+  border: none;
+  padding: 0px;
+
+  overflow: scroll;
+}
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  border: 1px solid rgb(115, 117, 109);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: yellowgreen;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #88ba1c;
+}
+
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none;
+  }
+  .split {
+    width: auto;
+  }
+}

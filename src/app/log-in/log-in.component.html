@@ -1,0 +1,122 @@
+<div class="body">
+  <div class="split left hidden-mobile">
+    <img class="rounded" src="assets/image5.jpg" alt="Login" />
+    <div class="topleft">
+      <button type="button" class="btn btn-outline-success m-1" routerLink="">
+        Log in
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-success m-1"
+        routerLink="/Register"
+      >
+        Registration
+      </button>
+    </div>
+
+    <div class="bottom-left">
+      <h1 class="text-success tit">Tweet App</h1>
+      <pre class="para">
+        "Twitter allows you to find interesting people or
+         build a following of people who are interested in you."
+      </pre>
+    </div>
+  </div>
+
+  <div class="split right">
+    <h1 class="text-success h1 wel">Welcome TweetApp Portal</h1>
+    <p class="sign text-success">Sign to your Account</p>
+
+    <div>
+      <div class m-4>
+        <button type="button" class="btn btn-success btn-floating m-3">
+          <i class="fab fa-facebook-f"></i>
+        </button>
+
+        <button type="button" class="btn btn-success btn-floating m-3">
+          <i class="fab fa-instagram"></i>
+        </button>
+        <button type="button" class="btn btn-success btn-floating m-3">
+          <i class="fab fa-google"></i>
+        </button>
+
+        <button type="button" class="btn btn-success btn-floating m-3">
+          <i class="fab fa-linkedin-square"></i>
+        </button>
+      </div>
+
+      <div>
+        <p class="text-center">
+          ----------------------Or----------------------
+        </p>
+      </div>
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+        <div class="form-group form-box inputiteam input-wrapperName">
+          <input
+            type="Username"
+            name="UserName"
+            class="form-control p-md-2"
+            placeholder="User Name"
+            formControlName="Username"
+          />
+          <div
+            class="feedback"
+            *ngIf="
+              myForm.get('Username').invalid &&
+              (myForm.get('Username').dirty || myForm.get('Username').touched)
+            "
+          >
+            Username Must be between 5 and 10 characters long..
+          </div>
+        </div>
+
+        <div class="form-group form-box inputiteam input-wrapperPassword">
+          <input
+            type="password"
+            name="Password"
+            class="form-control p-md-2"
+            autocomplete="off"
+            placeholder="Password"
+            formControlName="Password"
+          />
+          <div
+            class="feedback"
+            *ngIf="
+              myForm.get('Password').invalid &&
+              (myForm.get('Password').dirty || myForm.get('Password').touched)
+            "
+          >
+            Password Must be between 5 and 10 characters long..
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <!-- Checkbox -->
+          <div class="form-check mb-0">
+            <input class="form-check-input me-2" type="checkbox" value="" />
+
+            <label class="form-check-label align-items-center" for="Remember">
+              Remember me
+            </label>
+          </div>
+          <a href="/ForgotPassword" class="text-body text-lg-center"
+            >Forgot password?</a
+          >
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-outline-success btn-block m-3">
+            Log In
+          </button>
+        </div>
+        <p class="small fw-bold mt-2 pt-1 mb-0">
+          Don't have an account?
+          <a href="/Register" class="link-success">Register</a>
+        </p>
+      </form>
+      <div class="alert alert-danger mt-3" *ngIf="errMsg.length > 0">
+        {{ errMsg }}
+      </div>
+    </div>
+  </div>
+</div>

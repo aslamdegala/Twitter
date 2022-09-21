@@ -1,0 +1,175 @@
+<div>
+  <div class="left m-2">
+    <div class="post" *ngFor="let tweeet of TweetsList">
+      <div class="post__avatar">
+        <img
+          src='https://www.shareicon.net/data/512x512/2016/05/24/769963_man_512x512.png'
+          alt=""
+        />
+      </div>
+
+      <div class="post__body">
+        <div class="post__header">
+          <div class="post__headerText">
+            <h3>
+              @{{ tweeet.userName }}
+              <span class="post__headerSpecial"
+                ><span class="material-icons post__badge">
+                  verified
+                </span></span
+              >
+            </h3>
+          </div>
+          <div class="post__headerDescription">
+            <p>{{ tweeet.tweetDesp }} <br /></p>
+            <p style="color: blue">{{ tweeet.tweetTag }}</p>
+            {{ tweeet.tweetTime }}
+          </div>
+        </div>
+
+        <div class="post__footer">
+          <button
+            style="border: none"
+            type="submit"
+            (click)="OnLike(tweeet.tweetId)"
+          >
+            Like
+          </button>
+
+          <span
+            class="material-icons"
+            type="button"
+            (click)="isCollapsed2 = !isCollapsed2"
+            [attr.aria-expanded]="!isCollapsed2"
+            aria-controls="collapseBasic"
+          >
+            favorite_border
+          </span>
+
+          <button style="border: none">
+            <span
+              class="material-icons"
+              type="button"
+              (click)="isCollapsed1 = !isCollapsed1"
+              [attr.aria-expanded]="!isCollapsed1"
+              aria-controls="collapseBasic"
+              >comment
+            </span>
+          </button>
+          <button
+            style="border: none"
+            routerLink="/EditTweet"
+            (click)="EditTweetId(tweeet.tweetId)"
+          >
+            <span class="material-symbols-outlined"> edit </span>
+          </button>
+
+          <button
+            style="border: none"
+            (click)="DeletePost(tweeet.userName, tweeet.tweetId)"
+          >
+            <span class="material-symbols-outlined"> delete </span>
+          </button>
+        </div>
+        <div id="collapseBasic" [collapse]="isCollapsed2" [isAnimated]="true">
+          <div class="post__footer" *ngFor="let like of tweeet.tweetLikes">
+            {{ like.username }}
+          </div>
+        </div>
+
+        <div id="collapseBasic" [collapse]="isCollapsed1" [isAnimated]="true">
+          <form #c="ngForm" (ngSubmit)="onComment(c, tweeet.tweetId)">
+            <div class="">
+              <input
+                type="text"
+                placeholder="Comment"
+                name="replymsg"
+                ngModel
+                minlength="5"
+                maxlength="144"
+              />
+              <br />
+              <input
+                type="text"
+                placeholder="#hashtags"
+                name="replytag"
+                ngModel
+                minlength="5"
+                maxlength="50"
+              />
+              <br />
+              <button type="submit">Comment</button>
+            </div>
+          </form>
+          <br />
+          <div class="post__footer" *ngFor="let com of tweeet.tweetReply">
+            <p>
+              <b> {{ com.username }}:</b>
+              {{ com.replyMsg }}
+              {{ com.tweetReplytag }}
+            </p>
+            {{ com.tweetReplyTime }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right" *ngFor="let user of UserDetails">
+    <h6 class="p-4" style="font-size: large; font-weight: bold">My Profile</h6>
+
+    <div
+      style="text-align: left; font-size: large; margin-left: 25px"
+      class="p-2"
+    >
+      <b>
+        <b class="" style="font-family: Arial, Helvetica, sans-serif"
+          >Username :</b
+        >
+        @{{ user.userName }}</b
+      ><br />
+    </div>
+    <div
+      style="text-align: left; font-size: large; margin-left: 25px"
+      class="p-2"
+    >
+      <b>
+        <b class="" style="font-family: Arial, Helvetica, sans-serif"
+          >Full Name :
+        </b>
+        {{ user.firstName }} {{ user.lastName }}</b
+      ><br />
+    </div>
+    <div
+      style="text-align: left; font-size: large; margin-left: 25px"
+      class="p-2"
+    >
+      <b>
+        <b class="" style="font-family: Arial, Helvetica, sans-serif"
+          >Email :</b
+        >
+        {{ user.email }}</b
+      ><br />
+    </div>
+    <div
+      style="text-align: left; font-size: large; margin-left: 25px"
+      class="p-2"
+    >
+      <b>
+        <b class="" style="font-family: Arial, Helvetica, sans-serif"
+          >Mobile No :</b
+        >
+        {{ user.contactNo }}</b
+      ><br />
+    </div>
+    <div style="margin-left: 70px">
+      <button
+        class="p-2"
+        style="margin-top: 10%; background-color: rgb(178, 240, 162)"
+        routerLink="/ForgotPassword"
+      >
+        Update Password
+      </button>
+    </div>
+  </div>
+</div>

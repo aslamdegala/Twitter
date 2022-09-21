@@ -1,0 +1,204 @@
+<div class="left sidebar">
+  <a href="/Home">
+    <div class="sidebarOption">
+      <span class="material-icons"> home </span>
+      <h2>Home</h2>
+    </div>
+  </a>
+  <a href="/Profile">
+    <div class="sidebarOption">
+      <span class="material-icons"> perm_identity </span>
+      <h2>Profile</h2>
+    </div></a
+  >
+  <a href="/SearchProfile">
+    <div class="sidebarOption">
+      <span class="material-icons"> search </span>
+      <h2>Explore</h2>
+    </div></a
+  >
+  <a href="/Home">
+    <div class="sidebarOption">
+      <span class="material-icons"> notifications_none </span>
+      <h2>Notifications</h2>
+    </div></a
+  >
+  <a href="/Home">
+    <div class="sidebarOption">
+      <span class="material-icons"> mail_outline </span>
+      <h2>Messages</h2>
+    </div>
+  </a>
+  <a href="/Home">
+    <div class="sidebarOption">
+      <span class="material-icons"> bookmark_border </span>
+      <h2>Bookmarks</h2>
+    </div></a
+  >
+  <a href="/Home" style="color: rgb(30, 218, 108)">
+    <div class="sidebarOption">
+      <span class="material-icons"> list_alt </span>
+      <h2>Lists</h2>
+    </div>
+  </a>
+  <a href="/Home">
+    <div class="sidebarOption">
+      <span class="material-icons"> more_horiz </span>
+      <h2>More</h2>
+    </div>
+  </a>
+</div>
+
+<div class="right">
+  <div class="feed">
+    <div class="feed__header">
+      <h2>Home</h2>
+    </div>
+
+    <!-- tweetbox starts -->
+
+    <div class="tweetBox">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="tweetbox__input">
+          <img
+            style="padding-right: 10px"
+            src='https://www.shareicon.net/data/512x512/2016/05/24/769963_man_512x512.png'
+            alt=""
+          />
+          <textarea
+            class="form-control border border-success"
+            rows="5"
+            id="comment"
+            name="description"
+            placeholder="What's happening?"
+            ngModel
+            required
+            #descrip="ngModel"
+            minlength="5"
+            maxlength="144"
+          ></textarea>
+        </div>
+        <div class="hashtagbox">
+          <input
+            type="text"
+            class="form-control border border-success"
+            placeholder="#hashtags"
+            name="hashtags"
+            ngModel
+            minlength="5"
+            maxlength="50"
+          />
+        </div>
+
+        <button type="submit" class="tweetBox__tweetButton">Tweet</button>
+      </form>
+    </div>
+    <!-- tweetbox ends -->
+    <div
+      class="alert alert-danger mt-2"
+      style="text-align: center; margin: 20%; align-content: center"
+      *ngIf="flag === true"
+    >
+      Tweets Not Found :(
+    </div>
+    <!-- post starts -->
+    <div class="post" *ngFor="let tweeet of TweetsList">
+      <div class="post__avatar">
+        <img
+          src='https://www.shareicon.net/data/512x512/2016/05/24/769963_man_512x512.png'
+          alt=""
+        />
+      </div>
+
+      <div class="post__body">
+        <div class="post__header">
+          <div class="post__headerText">
+            <h3>
+              @{{ tweeet.userName }}
+              <span class="post__headerSpecial"
+                ><span class="material-icons post__badge">
+                  verified
+                </span></span
+              >
+            </h3>
+          </div>
+          <div class="post__headerDescription">
+            <p>{{ tweeet.tweetDesp }} <br /></p>
+            <p style="color: blue">{{ tweeet.tweetTag }}</p>
+            <p>{{ tweeet.tweetTime }}</p>
+          </div>
+        </div>
+
+        <div class="post__footer">
+          <button
+            style="border: none"
+            type="submit"
+            (click)="OnLike(tweeet.tweetId)"
+          >
+            Like
+          </button>
+          <span
+            class="material-icons"
+            type="button"
+            (click)="isCollapsed2 = !isCollapsed2"
+            [attr.aria-expanded]="!isCollapsed2"
+            aria-controls="collapseBasic"
+          >
+            favorite_border
+          </span>
+
+          <button style="border: none">
+            <span
+              class="material-icons"
+              type="button"
+              (click)="isCollapsed1 = !isCollapsed1"
+              [attr.aria-expanded]="!isCollapsed1"
+              aria-controls="collapseBasic"
+              >comment
+            </span>
+          </button>
+        </div>
+        <div id="collapseBasic" [collapse]="isCollapsed2" [isAnimated]="true">
+          <div class="post__footer" *ngFor="let like of tweeet.tweetLikes">
+            {{ like.username }}
+          </div>
+        </div>
+
+        <div id="collapseBasic" [collapse]="isCollapsed1" [isAnimated]="true">
+          <form #c="ngForm" (ngSubmit)="onComment(c, tweeet.tweetId)">
+            <div class="">
+              <input
+                type="text"
+                placeholder="Comment"
+                name="replymsg"
+                ngModel
+                minlength="5"
+                maxlength="144"
+              />
+              <br />
+              <input
+                type="text"
+                placeholder="#hashtags"
+                name="replytag"
+                ngModel
+                minlength="5"
+                maxlength="50"
+              />
+              <br />
+              <button type="submit">Comment</button>
+            </div>
+          </form>
+          <br />
+          <div class="post__footer" *ngFor="let com of tweeet.tweetReply">
+            <p>
+              <b>{{ com.username }}:</b>
+              {{ com.replyMsg }}
+              {{ com.tweetReplytag }}
+            </p>
+            {{ com.tweetReplyTime }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

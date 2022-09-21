@@ -1,0 +1,75 @@
+.inp {
+  width: 1000px;
+  height: 50px;
+  border: 20px;
+  background-color: rgb(48, 216, 118);
+  border-radius: 20px;
+  margin-left: 20px;
+  font-size: large;
+  color: rgb(227, 238, 229);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.tweetBox__tweetButton {
+  background-color: rgb(30, 218, 108);
+  border: none;
+  color: rgb(227, 238, 229);
+  font-weight: 900;
+
+  border-radius: 30px;
+  width: 80px;
+  height: 40px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 350px;
+  margin: auto;
+  text-align: center;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover,
+a:hover {
+  opacity: 0.7;
+}
+
+.flex-container {
+  background-color: rgb(48, 216, 118);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  max-width: 1350px;
+
+  margin-block: 2rem;
+  gap: 2rem;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  flex-direction: row;
+  margin-bottom: 100px;
+  float: left;
+}

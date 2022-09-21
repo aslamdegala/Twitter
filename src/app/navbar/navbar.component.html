@@ -1,0 +1,21 @@
+<nav class="navbar fixed-top navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" id="tw"
+      ><i class="fab fa-twitter"></i>
+      Tweet App
+    </a>
+
+    <div class="nav-item">
+      <button
+        class="log"
+        style="color: whitesmoke"
+        *ngIf="login()"
+        id="logout"
+        (click)="logout()"
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="nav-spacer"></div>

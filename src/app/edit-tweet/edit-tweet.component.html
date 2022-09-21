@@ -1,0 +1,36 @@
+<div class="tweetBox">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="tweetbox__input">
+      <img
+        style="padding-right: 10px"
+        src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png"
+        alt=""
+      />
+      <textarea
+        class="form-control border border-success"
+        rows="5"
+        id="comment"
+        name="description"
+        placeholder="What's happening?"
+        ngModel
+        required
+        #descrip="ngModel"
+        minlength="5"
+        maxlength="144"
+      ></textarea>
+    </div>
+    <div class="hashtagbox">
+      <input
+        type="text"
+        class="form-control border border-success"
+        placeholder="#hashtags"
+        name="hashtags"
+        ngModel
+        minlength="5"
+        maxlength="50"
+      />
+    </div>
+
+    <button type="submit" class="tweetBox__tweetButton">Update</button>
+  </form>
+</div>

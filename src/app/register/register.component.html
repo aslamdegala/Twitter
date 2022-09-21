@@ -1,0 +1,214 @@
+<div class="body">
+  <div class="split left hidden-mobile">
+    <img class="rounded" src="assets/image3.jpg" alt="Login" />
+    <div class="topleft">
+      <button
+        type="button"
+        routerLink=""
+        class="btn btn-outline-success m-1"
+        *ngIf="LoggedInCheack == false"
+      >
+        Log in
+      </button>
+      <button
+        type="button"
+        routerLink="/Register"
+        class="btn btn-outline-success m-1"
+        *ngIf="LoggedInCheack == false"
+      >
+        Registration
+      </button>
+    </div>
+
+    <div class="bottom-left">
+      <h1 class="text-success tit">Tweet App Portal</h1>
+      <p class="small fw-bold mt-2 pt-1 mb-0" *ngIf="LoggedInCheack == false">
+        Already a member?
+        <a href="" routerLink="" class="link-success li">Login Here</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="split right">
+    <h1 class="text-success h1 wel">Welcome TweetApp Portal</h1>
+
+    <div>
+      <div class m-4 *ngIf="LoggedInCheack == false" style="text-align: center">
+        <button type="button" class="btn btn-success btn-floating m-3">
+          <i class="fab fa-facebook-f"></i>
+        </button>
+
+        <button type="button" class="btn btn-success btn-floating m-3">
+          <i class="fab fa-instagram"></i>
+        </button>
+        <button type="button" class="btn btn-success btn-floating m-3">
+          <i class="fab fa-google"></i>
+        </button>
+
+        <button type="button" class="btn btn-success btn-floating m-3">
+          <i class="fab fa-linkedin-square"></i>
+        </button>
+      </div>
+
+      <div>
+        <p class="text-center" *ngIf="LoggedInCheack == false">
+          ----------------------Or----------------------
+        </p>
+      </div>
+
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+        <div class="form-group form-box inputiteam input-wrapperName">
+          <label>
+            <input
+              formControlName="FirstName"
+              placeholder="First Name"
+              class="form-control"
+              style="width: 680px"
+            />
+          </label>
+          <div
+            class="feedback"
+            *ngIf="
+              myForm.get('FirstName').invalid &&
+              (myForm.get('FirstName').dirty || myForm.get('FirstName').touched)
+            "
+          >
+            First Name Must be between 5 to 10 characters long..
+          </div>
+        </div>
+
+        <div class="inputiteam input-wrapperName">
+          <label>
+            <input
+              formControlName="LastName"
+              placeholder="Last Name"
+              class="form-control"
+              style="width: 680px"
+            />
+          </label>
+          <div
+            class="feedback"
+            *ngIf="
+              myForm.get('LastName').invalid &&
+              (myForm.get('LastName').dirty || myForm.get('LastName').touched)
+            "
+          >
+            Last Name Must be between 5 to 10 characters long..
+          </div>
+        </div>
+        <div class="form-group form-box inputiteam input-wrapperEmail">
+          <label>
+            <input
+              formControlName="Email"
+              placeholder="Email"
+              class="form-control"
+              style="width: 680px"
+            />
+          </label>
+          <div
+            class="feedback"
+            *ngIf="
+              myForm.get('Email').invalid &&
+              (myForm.get('Email').dirty || myForm.get('Email').touched)
+            "
+          >
+            Please provide valid email address..
+          </div>
+        </div>
+        <div class="form-group form-box inputiteam input-wrapperName">
+          <label>
+            <input
+              formControlName="UserName"
+              placeholder="UserName"
+              style="width: 680px"
+              class="form-control"
+            />
+          </label>
+          <div
+            class="feedback"
+            *ngIf="
+              myForm.get('UserName').invalid &&
+              (myForm.get('UserName').dirty || myForm.get('UserName').touched)
+            "
+          >
+            Username Must be between 5 to 10 characters long..
+          </div>
+        </div>
+        <div class="form-group form-box inputiteam input-wrapperPassword">
+          <label>
+            <input
+              formControlName="Password"
+              placeholder="Password"
+              class="form-control"
+              style="width: 680px"
+            />
+          </label>
+          <div
+            class="feedback"
+            *ngIf="
+              myForm.get('Password').invalid &&
+              (myForm.get('Password').dirty || myForm.get('Password').touched)
+            "
+          >
+            Password Must be between 5 to 10 characters long..
+          </div>
+        </div>
+        <div class="form-group form-box inputiteam input-wrapperPhone">
+          <label>
+            <input
+              formControlName="PhoneNumber"
+              placeholder="Mobile Number"
+              class="form-control"
+              style="width: 682px"
+            />
+          </label>
+          <div
+            class="feedback"
+            *ngIf="
+              myForm.get('PhoneNumber').invalid &&
+              (myForm.get('PhoneNumber').dirty ||
+                myForm.get('PhoneNumber').touched)
+            "
+          >
+            Please provide valid phone number..
+          </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="form-check mb-0">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="form2Example3"
+              required
+            />
+
+            <label
+              class="form-check-label align-items-center"
+              for="terms and contiton"
+            >
+              I agree to the terms of service
+            </label>
+          </div>
+        </div>
+
+        <div class="d-grid">
+          <button
+            type="submit"
+            class="btn btn-outline-success btn-block m-3 reg"
+          >
+            Register
+          </button>
+
+          <p
+            class="small fw-bold mt-2 pt-1 mb-0"
+            *ngIf="LoggedInCheack == false"
+          >
+            Already a member?
+            <a href="" routerLink="" class="link-success li">Login Here</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
